@@ -1,0 +1,38 @@
+*{<meta charset="utf-8">}*
+#{extends 'Application/main2.html' /}
+<h3>編集</h3>
+<form action="@{edit()}" method="post">
+	<input type="hidden" name="id" value="${t.id}">
+	<table border=1 width = "450px">
+	<tr>
+		<th width="100px"></th>
+		<th width="100px">期日</th>
+		<th width="200px">タスク名</th>
+		<th widht="50px">未/完</th>
+	</tr>
+	<tr>
+		<th>変更前</th>
+		<th>${t.timelimit}</th>
+		<th>${t.task}</th>
+		<th>${t.status == 0 ? '未' : '完'}</th>
+	</tr>
+	<tr>
+		<th>変更後</th>
+		<th><select name="timelimit">
+			<option>今日</option>
+			<option ${tl == 1 ? 'selected':''}>明日</option>
+			<option ${tl == 2 ? 'selected':''}>明後日</option>
+			<option ${tl == 3 ? 'selected':''}>近日中</option>
+			<option ${tl == 4 ? 'selected':''}>将来</option>
+		</th>
+		<th><input type="text" name="task" value="${t.task}" style="width:200px;"></th>
+		<th><select name="stt">
+			<option>未</option>
+			<option ${t.status == 1 ? 'selected':''}>完</option>
+		</th>
+	</tr>
+</table>
+    <br>
+    <input name="edit" id="editbutton" type="submit" value="変更する">
+    <input name="noedit" type="submit" value="変更しない">
+</form>

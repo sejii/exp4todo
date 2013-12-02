@@ -1,0 +1,30 @@
+/* exp4todo.css */
+body{
+	margin:2px;
+	padding:2px;
+	font-family: 'Arial', 'Tahoma', sans-serif;
+	background-color:#fffff0;
+    height: 750px;
+}
+div#wrapper{
+	width: 1000px;
+	margin: 0px 0px;
+	text-align: center;
+}
+h1{
+	background-color:#ffa64d;
+    color:#FFFFFF;
+	padding: 5px 5px;
+	margin: 0px 0px 0px 0px;
+}
+div#A{
+	width: 200px;
+	height:331px;
+	padding-top: 200px;
+	float:left;
+	background-color:#C8DE71;
+}
+div#B{
+	width: 800px;
+	float:right;
+}

@@ -1,0 +1,17 @@
+*{<meta charset="utf-8">}*
+#{extends 'Application/main2.html' /}
+<h3>アカウントリスト</h3>
+<ul style='list-style-type:none;'>
+	#{list items: users, as: 'account'}
+	<li>${account.userid}さん:管理人さん${account.admin == 1 ? 'です' : 'でない'}</li>
+	#{/list}
+</ul>
+<form action="@{deleteaccount()}" method="post">
+	<p>userID
+		<input type="text" name="userID" size="10">
+	</p>
+	<p><input type="submit" value="削除する"/></p>
+</form>
+<form action="@{logout()}" method="post">
+	<p><input type="submit" value="ログアウトする"/></p>
+</form>

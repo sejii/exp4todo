@@ -1,0 +1,78 @@
+*{<meta charset="utf-8">}*
+#{extends 'Application/main2.html' /}
+<h3>ようこそ、${user}さん</h3>
+<div id="box">
+  <div class="boxin">
+    <a href="todolist?q=1" id="circle1">今日</a>
+  </div>
+  <div class="boxin">
+    <a href="todolist?q=2" id="circle2">明日</a>
+  </div>
+  <div class="boxin">
+    <a href="todolist?q=3" id="circle3">明後日</a>
+  </div>
+  <div class="boxin">
+    <a href="todolist?q=4" id="circle4">近日中</a>
+  </div>
+  <div class="boxin">
+    <a href="todolist?q=5" id="circle5">将来</a>
+  </div>
+</div>
+<div id="A">
+<script type="text/javascript">
+<!--
+document.writeln("<input type=\"button\" onclick=\"location.href ='todolist?q=${q}&s=${s}&page=${pbid}'\" value=\"前の10件\">");
+document.writeln("<input type=\"button\" onclick=\"location.href='todolist?q=${q}&s=${s}&page=${pid}'\" value=\"次の10件\">");
+document.writeln("<input type=\"button\" onclick=\"location.href='todolist?q=${q}&s=1'\" value=\"未完のみ\">");
+document.writeln("<input type=\"button\" onclick=\"location.href='todolist?q=0&s=0&page=0'\" value=\"topへ\">");
+//-->
+</script>
+<noscript>
+    <button><a href="todolist?q=${q}&s=${s}&page=${pbid}">前の10件</a></button>
+    <button><a href="todolist?q=${q}&s=${s}&page=${pid}">次の10件</a></button>
+    <button><a href="todolist?q=${q}&s=1">未完のみ</a></button>
+    <button><a href="todolist?q=0&s=0&page=0">topへ</a></button>
+</noscript>
+	<ul style='list-style-type:none;'>
+		#{list items: tsks, as: 'tasks'}
+		<li>
+		<script type="text/javascript">
+		<!--
+		document.writeln("<form action= \"@{edittask()}\" method=\"post\">");
+		document.writeln("<span id=\"text\" onmouseover=\"this.style.color='#ffa64d'\" onmouseout=\"this.style.color='#000000'\">${tasks.timelimit} ${tasks.task} ${tasks.date}</span>");
+		document.writeln("<span id=\"status${tasks.id}\" value=\"${tasks.status == 0 ? '未完' : '完了'}\">${tasks.status == 0 ? '未' : '完'}</span>");
+		document.writeln("<input type=\"hidden\" id=\"id${tasks.id}\">");
+		document.writeln("<button name=\"delete\" value=\"${tasks.id}\">削除</button>");
+		document.writeln("<button onclick=\"statuschange(${tasks.id}); return false\">未/完</button>");
+		document.writeln("<button name=\"edit\" value=\"${tasks.id}\">編集</button>");
+		document.writeln("</form>");
+		//-->
+		</script>
+		<noscript>
+		<form action="@{edittask()}" method="post">
+		<span id="text" style="border:solid 1px" onmouseover="this.style.color='#ffa64d'" onmouseout="this.style.color='#000000'">${tasks.timelimit} ${tasks.task} ${tasks.date}</span>
+		<span id="status${tasks.id}" value="${tasks.status == 0 ? '未完' : '完了'}" style="border:solid 1px">${tasks.status == 0 ? '未' : '完'}</span>
+		<button name="delete" value="${tasks.id}">削除</button>
+		<button name="finish" value="${tasks.id}">未/完</button>
+		<button name="edit" value="${tasks.id}">編集</button>
+		</form>
+		</noscript>
+		</li>
+		#{/list}
+	</ul>
+
+<form action="@{addtask()}" method="post">
+	<p>タスク<input type="text" name="task" value=""/>
+			期日<select name="timelimit">
+			<option>今日</option>
+			<option>明日</option>
+			<option>明後日</option>
+			<option>近日中</option>
+			<option>将来</option>
+			<input type="submit" value="追加する">
+	</p>
+</form>
+<form action="@{logout()}" method="post">
+	<p><input type="submit" value="ログアウトする"/></p>
+</form>
+</div>

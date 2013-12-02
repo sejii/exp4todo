@@ -1,0 +1,112 @@
+/* exp4todo.css */
+body{
+	margin:2px;
+	padding:2px;
+    font-family: 'Arial', 'Tahoma', sans-serif;
+	background-color:#fffff0;
+	height: 700px;
+}
+div#wrapper{
+	min-width: 500px;
+	margin: 0px 0px;
+	text-align: center;
+}
+h1{
+	background-color:#ffa64d;
+	color:#FFFFFF;
+	padding: 5px 5px;
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+}
+ul{
+	margin-left: -40px;	
+}
+span{
+	padding: 5px;
+	border: #ffc95f 2px solid;
+    border-radius: 10px;
+    -moz-border-radius: 10px; /* Safari,Google Chrome用 */
+    -webkit-border-radius: 10px; /* Firefox用 */
+}
+@-moz-document url-prefix() {
+    span{
+        padding:1px;
+    }
+}
+
+li{
+	margin: 5px auto;
+}
+
+#box{
+  width: 500px;
+  height: 130px;
+  margin: 10px auto 0px auto;
+  color: #3F2F69;
+}
+.boxin{
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+#box a{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  line-height: 100px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  transition: .5s;
+  z-index: 10;
+}
+#box a:hover{
+  top: -30px;
+  left:-30px;
+  width: 150px;
+  height: 150px;
+  font-size: 30px;
+  line-height: 150px;
+  z-index: 100;
+}
+#circle1{
+  background: #490A3D;
+  background: rgba(73,10,61,.7);
+}
+#circle2{
+  background: #bd1550;
+  background: rgba(189,21,80,.7);
+}
+#circle3{
+  background: #e97f02;
+  background: rgba(233,127,2,.7);
+}
+#circle4{
+  background: #d6ae00;
+  background: rgba(214,174,0,.7);
+}
+#circle5{
+  background: #8a9b0f;
+  background: rgba(138,155,15,.7);
+}
+a:link {color: #000000;}
+a:visited{color: #000000;}
+a:hover{color: #000000;}
+a:active{color: #000000;}
+a{text-decoration:none;}
+
+table{
+	margin-left: 25px;
+}

@@ -1,0 +1,35 @@
+*{<meta charset="utf-8">}*
+#{extends 'Application/main.html' /}
+<h3>exp4todoログイン画面</h3>
+<p>ログイン画面へようこそ！</p>
+<p style="color:#FF0000">${stt == 1 ?  'ユーザー情報が間違っています': ''}</p>
+<form action="@{signin()}" method="post">
+	<dl>
+		<dt><label for="username">username</label></dt>
+		<dd style="margin:0px";><input type="text" name="userID" size="10" value=""/></dd>
+		<dt><label for="pass">password</label></dt>
+		<dd style="margin:0px";><input type="password" name="password" size="10" value=""/></dd>
+	</dl>
+	<p><input type="submit"/></p>
+</form>
+<h4>新規登録をする</h4>
+<p style="color:#0000ff">${stt == 2 ? '登録できました': ''}</p>
+<p style="color:#FF0000">${stt == 3 ? 'そのアカウント名は既に使われています': ''}</p>
+<p style="color:#FF0000">${stt == 4 ? 'ユーザー情報が間違っています': ''}</p>
+<form action="@{createaccount()}" method="post">
+	
+	<dl>
+		<dt><label for="userID">username</label></dt>
+		<dd style="margin:0px";><input type="text" name="userID" size="10" value="" autocomplete="off"/></dd>
+		<dt><label for="pass">password</label></dt>
+		<dd style="margin:0px";><input type="password" name="password" size="10" value=""/></dd>
+		<dt><label for="cppass">確認のため再度passwordを入力してください</label></dt>
+		<dd style="margin:0px";><input type="password" name="cppass" size="10" value=""/></dd>
+		<p><input type="submit" value="登録する"/></p>
+	</dl>
+</form>
+<form action="@{index()}">
+	<p><input type="submit" value="閉じる" onClick="window.close(); return false;"/></p>
+</form>
+
+		
